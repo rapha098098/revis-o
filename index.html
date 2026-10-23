@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revisão JavaScript</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisão Prática de JavaScript</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 820px; margin: auto; }
+    .box { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+    .destaque { background-color: yellow; }
+    button { margin: 4px; padding: 8px 12px; cursor: pointer; }
+    input { padding: 8px; margin: 4px; max-width: 170px; }
+  </style>
 </head>
 <body>
-    <h1>Revisão de JavaScript</h1>
-    <p>Abra o console do navegador para acompanhar os exercícios 1 a 7.</p>
+  <h1>Revisão Prática de JavaScript</h1>
+  <p>Os resultados dos exercícios 1 a 8 aparecem no console do navegador (F12).</p>
 
-    <h2>Exercício 8 — Parágrafos</h2>
+  <div class="box">
+    <h1 id="titulo">Texto Original</h1>
+    <button id="btnMudar">Mudar Título</button>
+  </div>
+  <div class="box">
+    <h2>Contador: <span id="contador">0</span></h2>
+    <button id="btnIncrementar">Incrementar</button>
+  </div>
+  <div class="box">
     <p class="paragrafo">Parágrafo 1</p>
     <p class="paragrafo">Parágrafo 2</p>
-
-    <h2>Exercícios 9 e 10 — Soma e divisão por zero</h2>
-    <label for="num1">Primeiro número:</label>
-    <input id="num1" type="number" value="10">
-    <label for="num2">Segundo número:</label>
-    <input id="num2" type="number" value="0">
-    <button id="btnSoma">Calcular soma</button>
-    <p id="resultado"></p>
-
-    <script src="script.js"></script>
+    <button id="btnDestacar">Destacar Parágrafos</button>
+  </div>
+  <div class="box">
+    <input type="text" id="campoInput" placeholder="Digite algo aqui...">
+    <p>Você está digitando: <span id="textoRefletido"></span></p>
+  </div>
+  <div class="box">
+    <h2>Desafio Final — Calculadora</h2>
+    <input type="number" id="num1" placeholder="Primeiro número" aria-label="Primeiro número">
+    <input type="number" id="num2" placeholder="Segundo número" aria-label="Segundo número">
+    <div>
+      <button id="btnSoma">Somar (+)</button>
+      <button id="btnSub">Subtrair (-)</button>
+      <button id="btnMulti">Multiplicar (×)</button>
+      <button id="btnDiv">Dividir (÷)</button>
+    </div>
+    <p>Resultado: <span id="resultado">—</span></p>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
