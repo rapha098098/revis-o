@@ -1,64 +1,156 @@
-// 1 — Diferença entre texto (string) e número
-let numero = "50";
-let real_numero = 50;
+// Revisão JavaScript — Módulo 1: Fundamentos e Lógica
 
-console.log(real_numero + 5); // 55
-console.log(numero + 5);      // "505"
-// Com aspas, o número é tratado como texto (string).
-
-// 2 — Operador ternário
-let idade = 17;
-let status = idade >= 18 ? "Maior de idade" : "Menor de idade";
-console.log(status);
-
-// 3 — Tabuada do 8
-for (let i = 1; i <= 10; i++) {
-    console.log(`8 x ${i} = ${8 * i}`);
+// Exercício 1 — Calculadora de média
+function calcularMedia(nota1, nota2, nota3) {
+  return (nota1 + nota2 + nota3) / 3;
+}
+const media = calcularMedia(8, 7, 9);
+console.log("Exercício 1 — Média:", media);
+if (media >= 7) {
+  console.log("Aprovado");
+} else {
+  console.log("Reprovado");
 }
 
-// 4 — Lista com métodos de array
-let lista = ["Banana", "Maçã"];
-lista.unshift("Maçã");
-lista.pop();
-lista.push("Melão");
-console.log(lista);
+// Exercício 2 — Verificador de tipo
+function verificarTipo(valor) {
+  console.log("A variável é do tipo " + typeof valor);
+}
+console.log("Exercício 2:");
+verificarTipo("Olá");
+verificarTipo(10);
+verificarTipo(true);
 
-// 5 — Arrow function
-const somar = (a, b) => a + b;
-console.log("Soma:", somar(10, 5));
+// Exercício 3 — Operador ternário
+const idade = 17;
+const status = idade >= 18 ? "Maior de idade" : "Menor de idade";
+console.log("Exercício 3:", status);
 
-// 6 — Filter
-const notas = [4, 7, 9, 3, 8];
-const aprovados = notas.filter(nota => nota >= 7);
-console.log("Notas aprovadas:", aprovados);
+// Exercício 4 — Tabuada com for
+const numeroTabuada = 7;
+console.log("Exercício 4 — Tabuada:");
+for (let i = 1; i <= 10; i++) {
+  console.log(`${numeroTabuada} x ${i} = ${numeroTabuada * i}`);
+}
 
-// 7 — Somar strings concatena textos
-let valor1 = "10";
-let valor2 = "5";
-console.log(valor1 + valor2); // "105"
+// Exercício 5 — Dia da semana com switch
+const diaSemana = 3;
+console.log("Exercício 5:");
+switch (diaSemana) {
+  case 1: console.log("Domingo"); break;
+  case 2: console.log("Segunda"); break;
+  case 3: console.log("Terça"); break;
+  case 4: console.log("Quarta"); break;
+  case 5: console.log("Quinta"); break;
+  case 6: console.log("Sexta"); break;
+  case 7: console.log("Sábado"); break;
+  default: console.log("Dia inválido");
+}
 
-// 8 — Selecionar e pintar todos os parágrafos
-document.querySelectorAll(".paragrafo").forEach(p => {
-    p.style.color = "red";
+// Módulo 2: Funções e Arrays
+
+// Exercício 6 — Arrow function para área de retângulo
+const calcularArea = (base, altura) => base * altura;
+console.log("Exercício 6 — Área:", calcularArea(5, 10));
+
+// Exercício 7 — Lista de compras
+const listaDeCompras = ["Arroz", "Feijão", "Batata"];
+listaDeCompras.push("Macarrão");
+listaDeCompras.unshift("Suco");
+listaDeCompras.pop();
+console.log("Exercício 7 — Lista final:", listaDeCompras);
+
+// Exercício 8 — filter, map, reduce e find
+const alunos = [
+  { nome: "Ana", nota: 8.5, idade: 20 },
+  { nome: "João", nota: 6.7, idade: 22 },
+  { nome: "Maria", nota: 9.3, idade: 19 },
+  { nome: "Carlos", nota: 5.0, idade: 21 },
+  { nome: "Beatriz", nota: 7.8, idade: 20 }
+];
+const aprovados = alunos.filter(aluno => aluno.nota >= 7);
+const nomesAlunos = alunos.map(aluno => aluno.nome);
+const somaIdades = alunos.reduce((soma, aluno) => soma + aluno.idade, 0);
+const mediaIdade = somaIdades / alunos.length;
+const alunoEncontrado = alunos.find(aluno => aluno.nota < 6);
+console.log("Exercício 8 — Aprovados:", aprovados);
+console.log("Exercício 8 — Nomes:", nomesAlunos);
+console.log("Exercício 8 — Soma das idades:", somaIdades);
+console.log("Exercício 8 — Média das idades:", mediaIdade);
+console.log("Exercício 8 — Primeiro aluno com nota menor que 6:", alunoEncontrado);
+
+// Módulo 3: DOM e Interação
+
+// Exercício 9 — Mudar título
+const titulo = document.getElementById("titulo");
+const btnMudar = document.getElementById("btnMudar");
+btnMudar.addEventListener("click", function () {
+  titulo.innerText = "Título Alterado com Sucesso!";
 });
 
-// 9 — Evento de clique para calcular a soma
+// Exercício 10 — Contador
+let contagem = 0;
+const contador = document.getElementById("contador");
+const btnIncrementar = document.getElementById("btnIncrementar");
+btnIncrementar.addEventListener("click", function () {
+  contagem++;
+  contador.innerText = contagem;
+});
+
+// Exercício 11 — Selecionar e destacar parágrafos
+const paragrafos = document.querySelectorAll(".paragrafo");
+const btnDestacar = document.getElementById("btnDestacar");
+btnDestacar.addEventListener("click", function () {
+  paragrafos.forEach(function (paragrafo) {
+    paragrafo.classList.add("destaque");
+  });
+});
+
+// Exercício 12 — Espelho de digitação
+const campoInput = document.getElementById("campoInput");
+const textoRefletido = document.getElementById("textoRefletido");
+campoInput.addEventListener("input", function () {
+  textoRefletido.innerText = campoInput.value;
+});
+
+// Desafio Final: Calculadora com DOM
+const num1 = document.getElementById("num1");
+const num2 = document.getElementById("num2");
 const btnSoma = document.getElementById("btnSoma");
+const btnSub = document.getElementById("btnSub");
+const btnMulti = document.getElementById("btnMulti");
+const btnDiv = document.getElementById("btnDiv");
 const resultado = document.getElementById("resultado");
 
-function calcular() {
-    const num1 = Number(document.getElementById("num1").value);
-    const num2 = Number(document.getElementById("num2").value);
-    resultado.innerText = `Soma: ${somar(num1, num2)}`;
+function somar(a, b) { return a + b; }
+function subtrair(a, b) { return a - b; }
+function multiplicar(a, b) { return a * b; }
+function dividir(a, b) { return a / b; }
 
-    // 10 — Verificar se é possível dividir
-    if (num2 === 0) {
-        alert("Não é possível dividir por zero!");
-        console.log("Não é possível dividir por zero!");
-    } else {
-        let resultadoDivisao = num1 / num2;
-        console.log("Divisão:", resultadoDivisao);
-    }
+// Converte os textos dos inputs em números
+function calcular() {
+  const valor1 = Number(num1.value);
+  const valor2 = Number(num2.value);
+  return [valor1, valor2];
 }
 
-btnSoma.addEventListener("click", calcular);
+btnSoma.addEventListener("click", function () {
+  const [a, b] = calcular();
+  resultado.innerText = somar(a, b);
+});
+btnSub.addEventListener("click", function () {
+  const [a, b] = calcular();
+  resultado.innerText = subtrair(a, b);
+});
+btnMulti.addEventListener("click", function () {
+  const [a, b] = calcular();
+  resultado.innerText = multiplicar(a, b);
+});
+btnDiv.addEventListener("click", function () {
+  const [a, b] = calcular();
+  if (b === 0) {
+    resultado.innerText = "Não se divide por 0";
+  } else {
+    resultado.innerText = dividir(a, b);
+  }
+});
